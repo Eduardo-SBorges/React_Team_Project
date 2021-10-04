@@ -5,19 +5,30 @@
 }
 
 .tabs {
-    flex-direction: row;
+    display: flex;
+    height: 44px;
+    width: calc(100% / 3);
+    justify-content: center;
     align-items: center;
     box-shadow: inset 0px -2px 0px #AAAAAA;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
     line-height: 18px;
-    padding: 13px 66px;
 }
 
 .tabs-container .active {
     box-shadow: inset 0px -3px 0px #074EE8;
     color:#074EE8;
 }
+
+/* =================================================================
+                            HTML:
+    <div class="tabs-container">
+        <div class="tabs active"><span>Basic</span></div>
+        <div class="tabs"><span>Social</span></div>
+        <div class="tabs"><span>Certificates</span></div>
+    </div>
+==================================================================== */ 
 
 /* =================================================================
                             HTML:
