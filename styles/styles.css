@@ -1,4 +1,5 @@
 @import "modules/title.css";
+<<<<<<< HEAD
 @import "modules/tabs.css";
 @import "modules/select_box.css";
 @import 'modules/inputs.css';
@@ -37,3 +38,6 @@
 /* Third TAB */
 
 
+=======
+@import "modules/buttons.css"
+>>>>>>> feat_buttons
