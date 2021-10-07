@@ -2,6 +2,7 @@
 @import "modules/buttons.css";
 @import "modules/tabs.css";
 @import "modules/select_box.css";
+@import "modules/customCheckBox.css";
 @import 'modules/inputs.css';
 @import "modules/iconsEffects.css";
 @import "modules/structure.css";
@@ -34,7 +35,10 @@
 
 /* First TAB */
 
-
+.check-terms, .checkmark {
+    color: #111 !important;
+    vertical-align: middle;
+}
 
 /* Second TAB */
 
