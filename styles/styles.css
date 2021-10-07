@@ -4,3 +4,36 @@
 @import 'modules/inputs.css';
 @import "modules/iconsEffects.css";
 @import "modules/structure.css";
+
+
+/* ALL TABS */
+
+
+.title, .input-block, .tabs-container {
+    margin: 20px 0;
+} 
+
+
+#third-tab, #second-tab, #first-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+
+.hide {
+    display: none !important;
+}
+
+
+/* First TAB */
+
+
+
+/* Second TAB */
+
+
+
+/* Third TAB */
+
+

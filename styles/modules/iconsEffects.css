@@ -1,12 +1,4 @@
-.labels {
-  font-family: 'Nunito', sans-serif;
-  color: #767676;
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 400;
-}
-
-.inputs {
+.input-heart {
   font-family: 'Nunito', sans-serif;
   color: #767676;
   background: #ffffff;
@@ -19,10 +11,10 @@
 
 
 #input_btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   margin: 0 12px 11px 0;
   border: 2px solid #aaaaaa;
   border-radius: 4px;
