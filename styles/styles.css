@@ -38,7 +38,11 @@
 
 /* Second TAB */
 
-
+.btn-to-down {
+    display: flex;
+    align-items: flex-end;
+    height: 350px;
+}
 
 /* Third TAB */
 
