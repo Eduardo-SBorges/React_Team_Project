@@ -39,6 +39,12 @@ textarea:focus, input:focus, select:focus {
     outline: 0;
 } 
 
+textarea:focus, input:focus:not(.input-heart), select:focus {
+    box-shadow: 0 0 0 0;
+    border: 2px solid #aaaaaa;
+    outline: 0;
+}
+
 
 /*
 
