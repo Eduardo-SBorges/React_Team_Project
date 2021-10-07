@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Team Sign Up</title>
+    <!-- Feather library (ícones dos botões)-->
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
@@ -32,13 +34,14 @@
             </form>
 
             <form class="form-data">
+
                 <section id="second-tab" class="">
 
                     <!-- Content Second TAB -->
 
 
 
-                    <!-- End Content ThiSecondrd TAB -->
+                    <!-- End Content Second TAB -->
 
                 </section>
             </form>
@@ -55,6 +58,7 @@
                         <div class="tabs"><span>Social</span></div>
                         <div class="tabs active"><span>Certificates</span></div>
                     </div>
+
                     <div class="input-block">
                         <label class="labels" for="fullname">Certificates</label>
                         <div id="input_btn">
@@ -64,26 +68,29 @@
                         </div>
                     </div>
 
-                    <!-- MORE BUTTON -->
-                    <!-- MORE BUTTON -->
-                    <!-- MORE BUTTON -->
+                    <div class="input-block btn-to-right btn-more">
+                        <button class="btn"><i class="svg-left" data-feather="plus"></i>More<i class="svg-right"
+                                data-feather="check"></i></button>
+                    </div>
 
                     <div class="input-block">
                         <label class="labels" for="teamName">Team Name *</label>
                         <input type="text" id="teamName" class="inputs" placeholder="Foo Bar" />
                     </div>
+
                     <div class="input-block">
                         <label class="labels" for="institution">Institution *</label>
                         <input type="text" id="institution" class="inputs" placeholder="Foo Bar" />
                     </div>
+
                     <div class="input-block">
                         <label class="labels" for="graduation">Graduation *</label>
                         <input type="text" id="graduation" class="inputs" placeholder="Foo Bar" />
                     </div>
 
-                    <!-- MORE FINISH -->
-                    <!-- MORE FINISH -->
-                    <!-- MORE FINISH -->
+                    <div class="input-block btn-to-right">
+                        <button class="btn"><i class="svg-left" data-feather="check"></i>Finish</button>
+                    </div>
 
                     <!-- End Content Third TAB -->
 
@@ -91,8 +98,13 @@
             </form>
         </div>
     </main>
+
+    <!-- JS Content -->
+
     <script type="module" src="script/script.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- End JS Content -->
 </body>
 
 </html>

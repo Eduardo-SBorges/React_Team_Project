@@ -58,11 +58,11 @@ main {
 
 .form-container {
     width: 650px;
-    height: 750px;
+    height: auto;
     background: #FFFFFF;
     border-radius: 20px;
     max-width: 85%;
-    max-height: 90%;
+    margin: 1% 0;
 }
 
 .form-data {
