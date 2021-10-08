@@ -68,7 +68,6 @@
 
 /* Second TAB */
 
-<<<<<<< HEAD
 .btn-to-down {
     display: flex;
     align-items: flex-end;
@@ -77,13 +76,6 @@
 
 /* Third TAB */
 
-.btn-more{
-    margin-top: -10px !important;
-}
-=======
-/* Third TAB */
-
 .btn-more {
   margin-top: -10px !important;
 }
->>>>>>> 2d077df105370fa950f6af9e5eee2a20276fecbf
