@@ -1,0 +1,9 @@
+.certificates-list {
+    position: absolute; 
+    margin-top: 245px;
+}
+
+.certificates-list ul {
+    list-style: none;
+    padding: 0px;
+}
