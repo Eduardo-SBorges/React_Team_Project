@@ -9,13 +9,12 @@
   border: none;
 }
 
-
 #input_btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin: 0 12px 11px 0;
+  width: 99.4%;
+  margin: 4px 12px 11px 0;
   border: 2px solid #aaaaaa;
   border-radius: 4px;
 }

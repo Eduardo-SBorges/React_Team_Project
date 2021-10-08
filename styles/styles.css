@@ -71,15 +71,20 @@
 .btn-to-down {
     display: flex;
     align-items: flex-end;
-    height: 296px;
+    height: 315px;
 }
 
 .btn-to-down button {
-    margin-bottom: 10px;
+    margin-bottom: 26px;
 }
 
 /* Third TAB */
 
 .btn-more {
   margin-top: -10px !important;
+}
+
+.btn-finish {
+margin-top: 4px;
+margin-bottom: 13px;
 }
