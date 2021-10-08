@@ -71,7 +71,11 @@
 .btn-to-down {
     display: flex;
     align-items: flex-end;
-    height: 350px;
+    height: 296px;
+}
+
+.btn-to-down button {
+    margin-bottom: 10px;
 }
 
 /* Third TAB */

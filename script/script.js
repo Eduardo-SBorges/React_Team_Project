@@ -1,9 +1,5 @@
-/*
+import tabsNavigation from "./modules/tabsNavigation.js"
 
-import view from './modules/view.js'
+tabsNavigation() // Ativação da navegação entre Tabs.
 
-view()  // Ativando a View;
-
-*/
-
-feather.replace() // Para ativar as imagens dentro dos botões
+feather.replace() // Ativação das imagens dentro dos botões.

@@ -22,13 +22,3 @@
   margin-top: 4px;
   width: 100%;
 }
-
-
-/* 
-
-HTML:
-
-<label class="labels" for="fullname">Full Name *</label>
-<input type="text" id="fullname" class="inputs" placeholder="Foo Bar" />
-
-*/

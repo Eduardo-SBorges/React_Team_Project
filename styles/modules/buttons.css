@@ -30,9 +30,3 @@ svg {
 .svg-left {
     margin-right: 3px;
 }
-
-/*
-    <button class="btn">Next <i class="svg-right" data-feather="chevron-right"></i></button>
-    <button class="btn"><i class="svg-left" data-feather="plus"></i>More<i class="svg-right" data-feather="check"></i></button>
-    <button class="btn"><i class="svg-left" data-feather="check"></i>Finish</button>
-*/

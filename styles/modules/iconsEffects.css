@@ -43,29 +43,3 @@ textarea:focus, input:focus:not(.input-heart), select:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
 }
-
-
-/*
-
-<label class="labels" for="fullname">Certificates</label>
-
-    <div id="input_btn">
-        <input type="text" id="fullname" class="inputs" placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/" />
-        <button id="btn_heart"><i data-feather="heart"></i></button>
-    </div>
-
-*/
-
-/* 
-
-OBS.: 
-
-1.INCLUIR NO BODY DO HTML PARA FUNCIONAR A FIGURA DO CORAÇÃO:
-
-    <script src="https://unpkg.com/feather-icons"></script>
-
-2. ADICIONAR NO ARQUIVO SCRIPT.JS A LINHA SEGUINTE:
-
-    feather.replace()
-    
-*/
