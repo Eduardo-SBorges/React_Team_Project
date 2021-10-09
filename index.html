@@ -50,7 +50,7 @@
                             <div class="input-block flex-line">
                                 <div class="medium-input">
                                     <label class="labels" for="email">Email *</label>
-                                    <input type="text" id="institution" class="inputs" placeholder="foo@bar.com" />
+                                    <input type="text" id="email" class="inputs" placeholder="foo@bar.com" />
                                 </div>
 
                                 <div class="small-input">
@@ -154,7 +154,7 @@
 
                                 <div class="four-inputs-by-line">
                                     <label class="labels" for="age">Age</label>
-                                    <input type="text" id="age" class="inputs" placeholder="18" />
+                                    <input type="text" id="age" class="inputs" disabled="disabled" placeholder="18" />
                                 </div>
                             </div>
 
@@ -166,7 +166,7 @@
                             </div>
 
                             <div class="input-block btn-to-right">
-                                <button class="btn">
+                                <button id="next1" class="btn">
                                     Next <i class="svg-right" data-feather="chevron-right"></i>
                                 </button>
                             </div>
@@ -185,19 +185,19 @@
                         <div id="content_2tab" class="hide">
 
                             <div class="input-block">
-                                <label class="labels" for="teamName">LinkedIn</label>
-                                <input type="text" id="teamName" class="inputs"
+                                <label class="labels" for="linkedin">LinkedIn</label>
+                                <input type="text" id="linkedin" class="inputs"
                                     placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/" />
                             </div>
 
                             <div class="input-block">
-                                <label class="labels" for="teamName">Github *</label>
-                                <input type="text" id="teamName" class="inputs"
-                                    placeholder="https://github.com/foobar" />
+                                <label class="labels" for="github">Github *</label>
+                                <input type="text" id="github" class="inputs" placeholder="https://github.com/foobar" />
                             </div>
 
                             <div class="btn-to-right btn-to-down">
-                                <button class="btn">Next <i class="svg-right" data-feather="chevron-right"></i></button>
+                                <button id="next2" class="btn">Next <i class="svg-right"
+                                        data-feather="chevron-right"></i></button>
                             </div>
 
                         </div>
@@ -249,7 +249,7 @@
                             </div>
 
                             <div class="input-block btn-to-right">
-                                <button class="btn btn-finish">
+                                <button id="finish" class="btn btn-finish">
                                     <i class="svg-left" data-feather="check"></i>Finish
                                 </button>
                             </div>

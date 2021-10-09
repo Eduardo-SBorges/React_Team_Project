@@ -1,5 +1,5 @@
-import tabsNavigation from "./modules/tabsNavigation.js"
+import navigation from "./modules/navigation.js"
 
-tabsNavigation() // Ativação da navegação entre Tabs.
+navigation() // Ativação da navegação entre Tabs.
 
 feather.replace() // Ativação das imagens dentro dos botões.

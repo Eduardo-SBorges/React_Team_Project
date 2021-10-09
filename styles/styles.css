@@ -9,6 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 /* ALL TABS */
+
 .title,
 .input-block,
 .tabs-container {
@@ -30,6 +31,10 @@
 
 .hide {
   display: none !important;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* First TAB */
