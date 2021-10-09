@@ -83,8 +83,6 @@ export default function navigation() {
                 certificates.classList.remove("active")
 
                 titulo.textContent = "Second Tab"
-
-                console.log("Página 3 liberada!")
             } else {
                 console.log("Não é possível avançar a página!")
             }
@@ -170,5 +168,4 @@ export default function navigation() {
     });
 
     /* Ending Submits validations */
-
 }
