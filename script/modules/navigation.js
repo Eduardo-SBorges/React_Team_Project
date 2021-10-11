@@ -28,17 +28,107 @@ export default function navigation() {
     const institution = $("#institution")
     const graduation = $("#graduation")
 
-    /* 
-    
-    
-    
-        Variables for regex (javascript validation) 
+    /*  Variables for error messages   */
 
+    function getErrorMessageTab1() {
+        const erroNome = $("#erroNome")
+        const erroEmail = $("#erroEmail")
+        const erroBirthday = $("#erroBirthday")
+        
+
+
+        if (fullname.value === "") {
+            erroNome.textContent = "Please enter your Name"
+            erroNome.classList.add("showError")
+        } else {
+            erroNome.classList.remove("showError")
+            erroNome.textContent = ""
+        }
+
+        if (email.value === "") {
+            erroEmail.textContent = "Please enter your Email"
+            erroEmail.classList.add("showError")
+        } else {
+            erroEmail.classList.remove("showError")
+            erroEmail.textContent = ""
+        }
+
+        if (age.value == "") {
+            erroBirthday.textContent = "Please enter your Age"
+            erroBirthday.classList.add("showError")
+        } else {
+            erroBirthday.classList.remove("showError")
+            erroBirthday.textContent = ""
+        }
+    }
+
+
+    function getErrorMessageTab2(){
     
+        const erroGithub = $("#erroGithub")
 
-    */
+        if (github.value === "") {
+            erroGithub.textContent = "Please enter your GitHub Link"
+            erroGithub.classList.add("showError")
+        } else {
+            erroGithub.classList.remove("showError")
+            erroGithub.textContent = ""
+        }
 
-    /* Variables for Age and its function */
+    }
+
+    function getErrorMessageTab3(){
+    
+        const erroTeamName = $("#erroTeamName")
+        const erroInstitution = $("#erroInstitution")
+        const erroGraduation = $("#erroGraduation")
+
+        if (teamName.value === "") {
+            erroTeamName.textContent = "Please enter your Team Name"
+            erroTeamName.classList.add("showError")
+        } else {
+            erroTeamName.classList.remove("showError")
+            erroTeamName.textContent = ""
+        }
+
+        if (institution.value === "") {
+            erroInstitution.textContent = "Please enter your Institution"
+            erroInstitution.classList.add("showError")
+        } else {
+            erroInstitution.classList.remove("showError")
+            erroInstitution.textContent = ""
+        }
+
+        if (graduation.value === "") {
+            erroGraduation.textContent = "Please enter your Graduation"
+            erroGraduation.classList.add("showError")
+        } else {
+            erroGraduation.classList.remove("showError")
+            erroGraduation.textContent = ""
+        }
+
+    }
+
+function getClearMessagesErrorTab1() {
+    erroNome.textContent = ""
+    erroEmail.textContent = ""
+    erroBirthday.textContent = ""
+}
+
+function getClearMessagesErrorTab2() {
+    erroGithub.textContent = ""
+}
+
+function getClearMessagesErrorTab3() {
+    erroTeamName.textContent = ""
+    erroInstitution.textContent = ""
+    erroGraduation.textContent = ""
+}
+
+
+
+
+    /*  Variables for Age and its function  */
 
     function getAge(dateString) {
         var today = new Date();
@@ -70,7 +160,7 @@ export default function navigation() {
 
         if (x.target === basic || x.target.textContent == basic_span) {
 
-            if (fullname.value != "" && email.value != ""/*  && age.value != "" */) {
+            if (fullname.value != "" && email.value != "" && age.value != "") {
                 content_1tab.classList.remove("hide")
                 content_2tab.classList.add("hide")
                 content_3tab.classList.add("hide")
@@ -80,7 +170,6 @@ export default function navigation() {
                 certificates.classList.remove("active")
 
                 titulo.textContent = "First Tab"
-
                 console.log("Página 2 liberada!")
 
             } else {
@@ -104,8 +193,10 @@ export default function navigation() {
                 certificates.classList.remove("active")
 
                 titulo.textContent = "Second Tab"
+                getClearMessagesErrorTab2()
             } else {
                 console.log("Não é possível avançar a página!")
+                getErrorMessageTab1()
             }
         }
     });
@@ -126,6 +217,8 @@ export default function navigation() {
                 titulo.textContent = "Third Tab"
             } else {
                 console.log("Não é possível avançar a página!")
+                getErrorMessageTab1()
+                getErrorMessageTab2()
             }
         }
     });
@@ -149,8 +242,13 @@ export default function navigation() {
 
             titulo.textContent = "Second Tab"
 
+            getClearMessagesErrorTab1()
+            getClearMessagesErrorTab2()
+
         } else {
             console.log("Não é possível avançar para a Tab 2 ainda!")
+            getErrorMessageTab1()
+            
         }
     });
 
@@ -171,8 +269,13 @@ export default function navigation() {
 
             titulo.textContent = "Third Tab"
 
+            getClearMessagesErrorTab1()
+            getClearMessagesErrorTab2()
+
         } else {
             console.log("Não é possível avançar para a Tab 3 ainda!")
+            getErrorMessageTab2()
+            
         }
     });
 
@@ -185,8 +288,15 @@ export default function navigation() {
             && institution.value != "" && graduation.value != ""
             && age.value != "") {
             console.log("Submit liberado!")
+
+            getClearMessagesErrorTab1()
+            getClearMessagesErrorTab2()
+            getClearMessagesErrorTab3()
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
+            
+            getErrorMessageTab3()
+            
         }
     });
 

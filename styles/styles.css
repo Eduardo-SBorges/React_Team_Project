@@ -101,3 +101,14 @@ button {
 margin-top: 21px;
 margin-bottom: 13px;
 }
+
+/* Spans de Erro */
+
+.showError{
+  font-family: 'Nunito', sans-serif;
+  color: red;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  padding-left: 20px;  
+}
