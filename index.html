@@ -49,7 +49,7 @@
 
                             <div class="input-block flex-line">
                                 <div class="medium-input">
-                                    <label class="labels" for="email">Email *<span  id="erroEmail"></span></label>
+                                    <label class="labels" for="email">Email *<span id="erroEmail"></span></label>
                                     <input type="text" id="email" class="inputs" placeholder="foo@bar.com" />
                                 </div>
 
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div>
-                                <p class="line-title title">Birthday *<span  id="erroBirthday"></span></p>
+                                <p class="line-title title">Birthday *<span id="erroBirthday"></span></p>
                             </div>
                             <div class="input-block flex-line">
                                 <div class="grid-collum four-inputs-by-line">
@@ -224,7 +224,7 @@
                             </div>
 
                             <div class="input-block">
-                                <label class="labels" for="github">Github *<span  id="erroGithub"></span></label>
+                                <label class="labels" for="github">Github *<span id="erroGithub"></span></label>
                                 <input type="text" id="github" class="inputs" placeholder="https://github.com/foobar" />
                             </div>
 
@@ -264,19 +264,21 @@
                             </div>
 
                             <div class="input-block">
-                                <label class="labels" for="teamName">Team Name *<span  id="erroTeamName"></span></label>
+                                <label class="labels" for="teamName">Team Name *<span id="erroTeamName"></span></label>
                                 <input type="text" id="teamName" class="inputs"
                                     placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/" />
                             </div>
 
                             <div class="input-block">
-                                <label class="labels" for="institution">Institution *<span  id="erroInstitution"></span></label>
+                                <label class="labels" for="institution">Institution *<span
+                                        id="erroInstitution"></span></label>
                                 <input type="text" id="institution" class="inputs"
                                     placeholder="Universidade Federal da Paraíba" />
                             </div>
 
                             <div class="input-block">
-                                <label class="labels" for="graduation">Graduation *<span  id="erroGraduation"></span></label>
+                                <label class="labels" for="graduation">Graduation *<span
+                                        id="erroGraduation"></span></label>
                                 <input type="text" id="graduation" class="inputs"
                                     placeholder="Ciências da Computação" />
                             </div>
@@ -294,12 +296,27 @@
                 <!-- Ending Content Third TAB -->
 
             </form>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal hide">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span id="texto-sucesso"></span>
+                    <div class="btn-to-right">
+                        <button id="close" class="btn">
+                            Close<i class="svg-right" data-feather="x-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </main>
 
     <!-- JS Content -->
 
     <script type="module" src="script/script.js"></script>
+    <script src="script/modules/sucessmodel.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- End JS Content -->

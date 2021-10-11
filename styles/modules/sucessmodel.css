@@ -1,0 +1,12 @@
+.modal {
+    width: auto;
+}
+
+.modal-content {
+    background: #ffffff;
+    color: #767676;
+    border: 2px solid #aaaaaa;
+    border-radius: 4px;
+    padding: 11px 12px;
+    margin: 1% 5%;
+}
