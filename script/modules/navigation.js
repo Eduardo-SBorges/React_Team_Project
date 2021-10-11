@@ -51,12 +51,7 @@ export default function navigation() {
         return age;
     }
 
-    const day = $('#day')
-    const month = $('#month')
-    const year = $('#year')
-    const age = $('#age')
-
-    year.addEventListener('input', function () {
+    $('#year').addEventListener('input', function () {
         const day = $('#day');
         const month = $('#month');
 
