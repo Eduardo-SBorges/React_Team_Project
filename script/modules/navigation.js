@@ -324,9 +324,12 @@ export default function navigation() {
             textoSucesso.innerHTML = fullname.value.concat(", your data has been sent successfully!");
             textCertificates.textContent = "Enviado com Sucesso!";
 
+            const closeModal = $('close')
+
             closeModal.addEventListener("click", function () {
+                const modal = $('#myModal')
                 // Adiciona a classe hide
-                modal.classList.add("hide");
+                modal.classList.remove("hide");
                 // Recarrega a página atual sem usar o cache
                 content_3tab.classList.remove("hide");
             });
