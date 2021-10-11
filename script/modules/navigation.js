@@ -156,6 +156,20 @@ export default function navigation() {
         $('#age').value = calcIdade(`${day.value}/${month.value - 1}/${year.value}`);
     });
 
+    /* Variables for Sucess */
+
+    // Obtém o botão close
+    var closeModal = document.querySelector("#close");
+
+    // Obtém o modal
+    let modal = document.querySelector("#myModal");
+
+    // Obtém o spam que terá a mensagem de sucesso
+    let textoSucesso = document.querySelector("#texto-sucesso");
+
+    // Obtém o texto tab_certificates que será mudado para sucesso
+    let textCertificates = document.querySelector("#certificates_id");
+
     /* Variables for buttons */
 
     const next1 = $("#next1")
@@ -298,11 +312,29 @@ export default function navigation() {
             getClearMessagesErrorTab1()
             getClearMessagesErrorTab2()
             getClearMessagesErrorTab3()
+
+            // Remove a classe hide
+            modal.classList.remove("hide");
+            // Adiciona um hiden nos três content_tab
+            // Desta forma, renderiza só o modal de sucesso
+            content_1tab.classList.add("hide");
+            content_2tab.classList.add("hide");
+            content_3tab.classList.add("hide");
+            // Modifica o texto de sucesso a ser renderizado
+            textoSucesso.innerHTML = fullname.value.concat(", your data has been sent successfully!");
+            textCertificates.textContent = "Enviado com Sucesso!";
+
+            closeModal.addEventListener("click", function () {
+                // Adiciona a classe hide
+                modal.classList.add("hide");
+                // Recarrega a página atual sem usar o cache
+                content_3tab.classList.remove("hide");
+            });
+
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
 
             getErrorMessageTab3()
-
         }
     });
 
