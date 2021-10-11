@@ -28,13 +28,13 @@ export default function navigation() {
     const institution = $("#institution")
     const graduation = $("#graduation")
 
-    /*  Variables for error messages   */
+    /*  Variables for error messages and its functions   */
 
     function getErrorMessageTab1() {
         const erroNome = $("#erroNome")
         const erroEmail = $("#erroEmail")
         const erroBirthday = $("#erroBirthday")
-        
+
 
 
         if (fullname.value === "") {
@@ -63,8 +63,8 @@ export default function navigation() {
     }
 
 
-    function getErrorMessageTab2(){
-    
+    function getErrorMessageTab2() {
+
         const erroGithub = $("#erroGithub")
 
         if (github.value === "") {
@@ -77,8 +77,8 @@ export default function navigation() {
 
     }
 
-    function getErrorMessageTab3(){
-    
+    function getErrorMessageTab3() {
+
         const erroTeamName = $("#erroTeamName")
         const erroInstitution = $("#erroInstitution")
         const erroGraduation = $("#erroGraduation")
@@ -109,45 +109,51 @@ export default function navigation() {
 
     }
 
-function getClearMessagesErrorTab1() {
-    erroNome.textContent = ""
-    erroEmail.textContent = ""
-    erroBirthday.textContent = ""
-}
+    function getClearMessagesErrorTab1() {
+        erroNome.textContent = ""
+        erroEmail.textContent = ""
+        erroBirthday.textContent = ""
+    }
 
-function getClearMessagesErrorTab2() {
-    erroGithub.textContent = ""
-}
+    function getClearMessagesErrorTab2() {
+        erroGithub.textContent = ""
+    }
 
-function getClearMessagesErrorTab3() {
-    erroTeamName.textContent = ""
-    erroInstitution.textContent = ""
-    erroGraduation.textContent = ""
-}
-
-
-
+    function getClearMessagesErrorTab3() {
+        erroTeamName.textContent = ""
+        erroInstitution.textContent = ""
+        erroGraduation.textContent = ""
+    }
 
     /*  Variables for Age and its function  */
 
-    function getAge(dateString) {
-        var today = new Date();
-        var birthDate = new Date(dateString);
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
+    function calcIdade(data) {
+        var d = new Date,
+            ano_atual = d.getFullYear(),
+            mes_atual = d.getMonth() + 1,
+            dia_atual = d.getDate(),
+            split = data.split('/'),
+            novadata = split[1] + "/" + split[0] + "/" + split[2],
+            data_americana = new Date(novadata),
+            vAno = data_americana.getFullYear(),
+            vMes = data_americana.getMonth() + 1,
+            vDia = data_americana.getDate(),
+            ano_aniversario = +vAno,
+            mes_aniversario = +vMes,
+            dia_aniversario = +vDia,
+            quantos_anos = ano_atual - ano_aniversario;
+        if (mes_atual < mes_aniversario || mes_atual == mes_aniversario && dia_atual < dia_aniversario) {
+            quantos_anos--;
         }
-        return age;
+        return quantos_anos < 0 ? 0 : quantos_anos;
     }
 
     $('#year').addEventListener('input', function () {
         const day = $('#day');
         const month = $('#month');
+        const year = $('#year')
 
-        const age_aux = getAge(`${this.value}, ${month.value - 1}, ${day.value}`);
-
-        $('#age').value = age_aux;
+        $('#age').value = calcIdade(`${day.value}/${month.value - 1}/${year.value}`);
     });
 
     /* Variables for buttons */
@@ -248,7 +254,7 @@ function getClearMessagesErrorTab3() {
         } else {
             console.log("Não é possível avançar para a Tab 2 ainda!")
             getErrorMessageTab1()
-            
+
         }
     });
 
@@ -275,7 +281,7 @@ function getClearMessagesErrorTab3() {
         } else {
             console.log("Não é possível avançar para a Tab 3 ainda!")
             getErrorMessageTab2()
-            
+
         }
     });
 
@@ -294,9 +300,9 @@ function getClearMessagesErrorTab3() {
             getClearMessagesErrorTab3()
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
-            
+
             getErrorMessageTab3()
-            
+
         }
     });
 
