@@ -38,6 +38,32 @@ export default function navigation() {
 
     */
 
+    /* Variables for Age and its function */
+
+    function getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+    const day = $('#day')
+    const month = $('#month')
+    const year = $('#year')
+    const age = $('#age')
+
+    year.addEventListener('input', function () {
+        const day = $('#day');
+        const month = $('#month');
+
+        const age_aux = getAge(`${this.value}, ${month.value - 1}, ${day.value}`);
+
+        $('#age').value = age_aux;
+    });
 
     /* Variables for buttons */
 
@@ -73,7 +99,7 @@ export default function navigation() {
 
         if (x.target === social || x.target.textContent == social_span) {
 
-            if (fullname.value != "" && email.value != ""/*  && age.value != "" */) {
+            if (fullname.value != "" && email.value != "" && age.value != "") {
                 content_1tab.classList.add("hide")
                 content_2tab.classList.remove("hide")
                 content_3tab.classList.add("hide")
@@ -116,7 +142,8 @@ export default function navigation() {
     next1.addEventListener("click", (event) => {
         event.preventDefault()
 
-        if (fullname.value != "" && email.value != "") {
+        if (fullname.value != "" && email.value != ""
+            && age.value != "") {
             content_1tab.classList.add("hide")
             content_2tab.classList.remove("hide")
             content_3tab.classList.add("hide")
@@ -160,7 +187,8 @@ export default function navigation() {
 
         if (fullname.value != "" && email.value != ""
             && github.value != "" && teamName.value != ""
-            && institution.value != "" && graduation.value != "") {
+            && institution.value != "" && graduation.value != ""
+            && age.value != "") {
             console.log("Submit liberado!")
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
