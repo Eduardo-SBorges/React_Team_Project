@@ -6,8 +6,6 @@ export default function navigation() {
 
     /* Variables for logical navigation */
 
-    const content_certificates = $("#certificates")
-
     const content_form = $("form");
 
     const content_1tab = $("#content_1tab")
@@ -32,6 +30,7 @@ export default function navigation() {
     const day = $("#day")
     const month = $("#month")
     const year = $("#year")
+    const terms_input = $("#terms-input")
     const github = $("#github")
     const teamName = $("#teamName")
     const institution = $("#institution")
@@ -42,10 +41,21 @@ export default function navigation() {
     const modal = $(".modal");
     const closeButton = $("#close-model");
     const textModel = $("#text-modal");
-    const certificatesText = $("#certificates");
-    const buttonMore = $("#button-more");
-    let listCertificates = [];
 
+    /* Button more*/
+    const button_more = $("#my-button-more");
+    const content_certificates = $("#certificates");
+    let listCertificates = [];
+    /* Checkbox validation */
+
+    terms_input.addEventListener('click', () => {
+        terms_input.classList.toggle('check-box-actived')
+    });
+
+
+    /*  Variables for error messages and its functions   */
+
+    /* Function to validade output of modal */
     function validadeOutput(output) {
         let saida = output.split(":");
         console.log(saida);
@@ -55,13 +65,12 @@ export default function navigation() {
         return `${(saida[0] + ":" + saida[1])} <br>`;
     }
 
-    /*  Variables for error messages   */
 
     function getErrorMessageTab1() {
         const erroNome = $("#erroNome")
         const erroEmail = $("#erroEmail")
         const erroBirthday = $("#erroBirthday")
-        
+        const erroCheckbox = $("#erroCheckbox")
 
 
         if (fullname.value === "") {
@@ -87,11 +96,18 @@ export default function navigation() {
             erroBirthday.classList.remove("showError")
             erroBirthday.textContent = ""
         }
+        if (terms_input.classList.contains("check-box-actived") == false) {
+            erroCheckbox.textContent = "Please confirm the terms"
+            erroCheckbox.classList.add("showError")
+        } else {
+            erroCheckbox.classList.remove("showError")
+            erroCheckbox.textContent = ""
+        }
     }
 
 
-    function getErrorMessageTab2(){
-    
+    function getErrorMessageTab2() {
+
         const erroGithub = $("#erroGithub")
 
         if (github.value === "") {
@@ -104,8 +120,8 @@ export default function navigation() {
 
     }
 
-    function getErrorMessageTab3(){
-    
+    function getErrorMessageTab3() {
+
         const erroTeamName = $("#erroTeamName")
         const erroInstitution = $("#erroInstitution")
         const erroGraduation = $("#erroGraduation")
@@ -136,24 +152,22 @@ export default function navigation() {
 
     }
 
-function getClearMessagesErrorTab1() {
-    erroNome.textContent = ""
-    erroEmail.textContent = ""
-    erroBirthday.textContent = ""
-}
+    function getClearMessagesErrorTab1() {
+        erroNome.textContent = ""
+        erroEmail.textContent = ""
+        erroBirthday.textContent = ""
+        erroCheckbox.textContent = ""
+    }
 
-function getClearMessagesErrorTab2() {
-    erroGithub.textContent = ""
-}
+    function getClearMessagesErrorTab2() {
+        erroGithub.textContent = ""
+    }
 
-function getClearMessagesErrorTab3() {
-    erroTeamName.textContent = ""
-    erroInstitution.textContent = ""
-    erroGraduation.textContent = ""
-}
-
-
-
+    function getClearMessagesErrorTab3() {
+        erroTeamName.textContent = ""
+        erroInstitution.textContent = ""
+        erroGraduation.textContent = ""
+    }
 
     /*  Variables for Age and its function  */
 
@@ -167,15 +181,40 @@ function getClearMessagesErrorTab3() {
         }
         return age;
     }
+    document.querySelector('#year').addEventListener('input', function () {
+        let day = document.querySelector('#day');
+        let month = document.querySelector('#month');
+
+        let age_aux = getAge(`${this.value},${month.value},${day.value}`);
+
+        if (age_aux < 0 || age_aux > 110) {
+            age_aux = 'Invalid Age';
+        }
+
+        console.log(isNaN(parseInt(age_aux)));
+        document.querySelector('#age').value = isNaN(parseInt(age_aux))
+            ? 'Invalid Age'
+            : age_aux;
+    });
 
     $('#year').addEventListener('input', function () {
         const day = $('#day');
         const month = $('#month');
+        const year = $('#year')
 
-        const age_aux = getAge(`${this.value}, ${month.value - 1}, ${day.value}`);
-
-        $('#age').value = age_aux;
+        $('#age').value = getAge(`${year.value}/${month.value - 1}/${day.value}`)
     });
+
+    /* Variables for Sucess */
+
+    // Obtém o botão close
+    var closeModal = document.querySelector("#close");
+
+    // Obtém o spam que terá a mensagem de sucesso
+    let textoSucesso = document.querySelector("#texto-sucesso");
+
+    // Obtém o texto tab_certificates que será mudado para sucesso
+    let textCertificates = document.querySelector("#certificates_id");
 
     /* Variables for buttons */
 
@@ -210,7 +249,8 @@ function getClearMessagesErrorTab3() {
 
         if (x.target === social || x.target.textContent == social_span) {
 
-            if (fullname.value != "" && email.value != "" && age.value != "") {
+            if (fullname.value != "" && email.value != ""
+                && age.value != "" && terms_input.classList.contains("check-box-actived") == true) {
                 content_1tab.classList.add("hide")
                 content_2tab.classList.remove("hide")
                 content_3tab.classList.add("hide")
@@ -232,7 +272,8 @@ function getClearMessagesErrorTab3() {
 
         if (x.target === certificates || x.target.textContent == certificates_span) {
 
-            if (fullname.value != "" && email.value != "" && github.value != "") {
+            if (fullname.value != "" && email.value != "" && age.value != "" && github.value != ""
+                && terms_input.classList.contains("check-box-actived") == true) {
                 content_1tab.classList.add("hide")
                 content_2tab.classList.add("hide")
                 content_3tab.classList.remove("hide")
@@ -258,7 +299,7 @@ function getClearMessagesErrorTab3() {
         event.preventDefault()
 
         if (fullname.value != "" && email.value != ""
-            && age.value != "") {
+            && age.value != "" && terms_input.classList.contains("check-box-actived") == true) {
             content_1tab.classList.add("hide")
             content_2tab.classList.remove("hide")
             content_3tab.classList.add("hide")
@@ -275,7 +316,7 @@ function getClearMessagesErrorTab3() {
         } else {
             console.log("Não é possível avançar para a Tab 2 ainda!")
             getErrorMessageTab1()
-            
+
         }
     });
 
@@ -283,8 +324,8 @@ function getClearMessagesErrorTab3() {
 
         event.preventDefault()
 
-        if (fullname.value != "" && email.value != ""
-            && github.value != "") {
+        if (fullname.value != "" && email.value != "" && age.value != ""
+            && github.value != "" && terms_input.classList.contains("check-box-actived") == true) {
 
             content_1tab.classList.add("hide")
             content_2tab.classList.add("hide")
@@ -302,7 +343,7 @@ function getClearMessagesErrorTab3() {
         } else {
             console.log("Não é possível avançar para a Tab 3 ainda!")
             getErrorMessageTab2()
-            
+
         }
     });
 
@@ -313,7 +354,7 @@ function getClearMessagesErrorTab3() {
         if (fullname.value != "" && email.value != ""
             && github.value != "" && teamName.value != ""
             && institution.value != "" && graduation.value != ""
-            && age.value != "") {
+            && age.value != "" && terms_input.classList.contains("check-box-actived") == true) {
             console.log("Submit liberado!")
 
             getClearMessagesErrorTab1()
@@ -333,7 +374,8 @@ function getClearMessagesErrorTab3() {
                                                                month.value + "/" + 
                                                                year.value)}
                                ${validadeOutput("Age: " + age.value)}
-                               ${validadeOutput("Linkedin: " + linkedin.value)}`
+                               ${validadeOutput("Linkedin: " + linkedin.value)}
+                               ${("Certificados: " + listCertificates.join(", "))}`
             console.log(outputModel);
             textModel.innerHTML = outputModel;
 
@@ -344,11 +386,11 @@ function getClearMessagesErrorTab3() {
 
             modal.classList.toggle("show-modal");
             content_form.classList.add("hide");
+
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
-            
+
             getErrorMessageTab3()
-            
         }
     });
 
@@ -358,13 +400,18 @@ function getClearMessagesErrorTab3() {
              As the class already exists it will be removed from the modal
         */
 
+        //console.log("lista vazia.");
+        listCertificates = [];
         modal.classList.toggle("show-modal");
         content_form.classList.remove("hide");
     });
 
-
-    buttonMore.addEventListener("click", function(){
-        console.log("Black Box Testing...");
+    button_more.addEventListener("click", function(event){
+        event.preventDefault();
+        if (listCertificates.length < 5){
+            listCertificates.push(content_certificates.value);
+            console.log(listCertificates);
+        } 
     });
 
     window.addEventListener("click", function (event) {

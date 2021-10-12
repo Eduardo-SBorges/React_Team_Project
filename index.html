@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/styles.css" />
@@ -136,36 +136,6 @@
                                     <label class="labels" for="year">Year</label>
                                     <select class="select" id="year" name="year" required>
                                         <option value=""></option>
-                                        <option value="1991">1960</option>
-                                        <option value="1991">1961</option>
-                                        <option value="1991">1962</option>
-                                        <option value="1991">1963</option>
-                                        <option value="1991">1964</option>
-                                        <option value="1991">1965</option>
-                                        <option value="1991">1966</option>
-                                        <option value="1991">1967</option>
-                                        <option value="1991">1968</option>
-                                        <option value="1991">1969</option>
-                                        <option value="1991">1970</option>
-                                        <option value="1991">1971</option>
-                                        <option value="1991">1972</option>
-                                        <option value="1991">1973</option>
-                                        <option value="1991">1974</option>
-                                        <option value="1991">1975</option>
-                                        <option value="1991">1976</option>
-                                        <option value="1991">1977</option>
-                                        <option value="1991">1978</option>
-                                        <option value="1991">1979</option>
-                                        <option value="1991">1980</option>
-                                        <option value="1991">1981</option>
-                                        <option value="1991">1982</option>
-                                        <option value="1991">1983</option>
-                                        <option value="1991">1984</option>
-                                        <option value="1991">1985</option>
-                                        <option value="1991">1986</option>
-                                        <option value="1991">1987</option>
-                                        <option value="1991">1988</option>
-                                        <option value="1991">1989</option>
                                         <option value="1991">1991</option>
                                         <option value="1992">1992</option>
                                         <option value="1993">1993</option>
@@ -206,10 +176,11 @@
                                 </div>
                             </div>
 
-                            <div class="input-block">
-                                <label class="check-terms">I accept the terms and privacy
-                                    <input type="checkbox" checked="checked" />
-                                    <span class="checkmark"></span>
+                            <div id="terms" class="input-block">
+                                <label id="terms-label" class="check-terms">I accept the terms and privacy<span
+                                        id="erroCheckbox"></span>
+                                    <input id="terms-input" type="checkbox" />
+                                    <span id="terms-span" class="checkmark"></span>
                                 </label>
                             </div>
 
@@ -248,10 +219,7 @@
                                         data-feather="chevron-right"></i></button>
                             </div>
 
-                        </div>
-
                     </section>
-
                 </div>
 
                 <!-- Ending Content Second TAB -->
@@ -268,14 +236,33 @@
                                 <label class="labels" for="certificates">Certificates</label>
                                 <div id="input_btn">
                                     <input type="text" id="certificates" class="input-heart"
-                                        placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/" />
-                                    <button id="btn_heart"><i data-feather="heart"></i></button>
+                                        placeholder="https://cursos.alura.com.br/certificate/4ad81d87-33a3-48f4-86ac-5d4e3747b761" />
+                                    <button id="btn_heart" class="button-prevent"><i id="heart-teste"
+                                            data-feather="heart"></i></button>
                                 </div>
                             </div>
+                            <div class="input-block btn-space-between btn-more">
+                                <div class="certificates-list">
+                                    <ul class="certificates-ul">
+                                        <li class="certificates-opt hide"><span
+                                                class="certificates-span">Certificates</span>
+                                            <i data-feather="chevron-down"></i>
+                                        </li>
+                                        <div class="certificates-added hide">
+                                            <div class="certificates-favorite">
 
-                            <div class="input-block btn-to-right btn-more">
-                                <button class="btn" id="button-more"><i class="svg-left" data-feather="plus"></i>More<i class="svg-right"
-                                        data-feather="chevron-right"></i></button>
+                                            </div>
+                                            <div class="certificates-normal">
+
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="prevent-align-flex-start">
+                                    <button class="btn button-prevent button-more" id="my-button-more"><i class="svg-left"
+                                            data-feather="plus"></i>More<i class="svg-right"
+                                            data-feather="check"></i></button>
+                                </div>
                             </div>
 
                             <div class="input-block">
@@ -294,12 +281,11 @@
                             <div class="input-block">
                                 <label class="labels" for="graduation">Graduation *<span
                                         id="erroGraduation"></span></label>
-                                <input type="text" id="graduation" class="inputs"
-                                    placeholder="Ciências da Computação" />
+                                <input type="text" id="graduation" class="inputs" placeholder="Ciência da Computação" />
                             </div>
 
                             <div class="input-block btn-to-right">
-                                <button id="finish" class="btn btn-finish">
+                                <button id="finish" class="btn btn-finish" type="submit">
                                     <i class="svg-left" data-feather="check"></i>Finish
                                 </button>
                             </div>
