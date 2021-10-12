@@ -1,9 +1,87 @@
 .certificates-list {
     position: absolute; 
-    margin-top: 245px;
+    margin-top: 239px;
+    font-size: 16px;
 }
 
 .certificates-list ul {
-    list-style: none;
+    list-style:none;
+    font-family: 'Nunito', sans-serif;
+    color: white;
     padding: 0px;
 }
+
+.certificates-opt {
+    background-color:#3277e8;
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    padding: 12px;
+    width: 200px;
+    border-radius: 4px;
+}
+
+.certificates-border {
+    border-radius: 4px 4px 0px 0px;
+}
+
+.certificates-added li {
+    background-color: rgba(50, 119, 232, 0.7);
+    width: 218px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+}
+
+.certificates-added .text-limit {
+    max-width: 80%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.certificates-added li:hover {
+    background-color: rgba(50, 119, 232, 0.8);
+}
+
+.certificates-added .certificates-normal li:last-child {
+    border-radius: 0px 0px 2px 2px;
+}
+
+.certificates-opt svg{
+    padding-left: 0px;
+}
+
+.remove-style {
+    cursor: pointer;
+    float: right;
+    margin-top: 1%;
+    margin-right: 2%;
+}
+
+.remove-style:hover {
+    color: rgb(209, 208, 208);
+    transition: .3s;
+}
+
+/* HEART */
+
+.favorite-heart {
+    fill: #074EE8;
+    color: #074EE8;
+    margin-right: 1%;
+}
+
+/* MESSAGE ERROR > 5 */
+
+.message-error {
+    color: red;
+    font-family: 'Nunito', sans-serif; 
+}
+
+/* css changes needed  */
+/* position **********
+    CERTIFICATES BORDER
+    HEART COLORS
+ */
