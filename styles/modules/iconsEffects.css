@@ -29,6 +29,7 @@
   height: 20px;
 }
 #btn_heart svg:hover {
+  fill: #074EE8;
   color: #074EE8;
 }
 

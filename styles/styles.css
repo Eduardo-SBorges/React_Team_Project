@@ -8,6 +8,7 @@
 @import 'modules/structure.css';
 @import 'modules/sucessmodel.css';
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import "modules/certificates.css";
 
 /* ALL TABS */
 
@@ -58,6 +59,11 @@ button {
   display: flex;
   justify-content: space-between;
 }
+
+.show {
+    display: block !important;
+}
+/* First TAB */
 
 .four-inputs-by-line {
   width: 20%;
