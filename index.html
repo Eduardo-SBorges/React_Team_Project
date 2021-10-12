@@ -20,6 +20,21 @@
     </header>
     <main>
         <div class="form-container">
+            <!-- The Modal Container -->
+
+            <div class="modal scale-up-center">
+
+                <!-- Modal content Container -->
+
+                <div class="modal-content">
+                    <span id="text-modal"></span>
+                    <div class="btn-to-right">
+                        <button id="close-model" class="btn">
+                            Close<i class="svg-right" data-feather="x-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <form method="post">
 
                 <!-- Starting Content First TAB -->
@@ -296,27 +311,12 @@
                 <!-- Ending Content Third TAB -->
 
             </form>
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal hide">
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <span id="texto-sucesso"></span>
-                    <div class="btn-to-right">
-                        <button id="close" class="btn">
-                            Close<i class="svg-right" data-feather="x-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </main>
 
     <!-- JS Content -->
 
     <script type="module" src="script/script.js"></script>
-    <script src="script/modules/sucessmodel.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- End JS Content -->

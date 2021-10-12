@@ -6,6 +6,8 @@ export default function navigation() {
 
     /* Variables for logical navigation */
 
+    const content_form = $("form");
+
     const content_1tab = $("#content_1tab")
     const content_2tab = $("#content_2tab")
     const content_3tab = $("#content_3tab")
@@ -21,14 +23,34 @@ export default function navigation() {
     /* Variables for required inputs */
 
     const fullname = $("#fullname")
+    const nickname = $("#nickname")
     const email = $("#email")
+    const phone = $("#phone")
     const age = $("#age")
+    const day = $("#day")
+    const month = $("#month")
+    const year = $("#year")
     const github = $("#github")
     const teamName = $("#teamName")
     const institution = $("#institution")
     const graduation = $("#graduation")
+    const linkedin = $("#linkedin")
+
+    /* Variables for modal controller */
+    const modal = document.querySelector(".modal");
+    const closeButton = document.querySelector("#close-model");
+    const textModel = document.querySelector("#text-modal");
 
     /*  Variables for error messages   */
+
+    function validadeOutput(output) {
+        let saida = output.split(":");
+        console.log(saida);
+        if (saida[1] == " ") {
+            return "";
+        }
+        return `${(saida[0] + ":" + saida[1])} <br>`;
+    }
 
     function getErrorMessageTab1() {
         const erroNome = $("#erroNome")
@@ -292,11 +314,58 @@ function getClearMessagesErrorTab3() {
             getClearMessagesErrorTab1()
             getClearMessagesErrorTab2()
             getClearMessagesErrorTab3()
+
+            let outputModel = `Seus dados foram enviados com sucesso! <br> <br>
+                               ${validadeOutput("Fullname: " + fullname.value)} 
+                               ${validadeOutput("Nickname: " + nickname.value)} 
+                               ${validadeOutput("Email: " + email.value)}
+                               ${validadeOutput("Phone: " + phone.value)}
+                               ${validadeOutput("GitHub: " + github.value)}
+                               ${validadeOutput("Team Name: " + teamName.value)}
+                               ${validadeOutput("Institution: " + institution.value)}
+                               ${validadeOutput("Graduation: " + graduation.value)}
+                               ${validadeOutput("Birthday: " + day.value + "/" +
+                                                               month.value + "/" + 
+                                                               year.value)}
+                               ${validadeOutput("Age: " + age.value)}
+                               ${validadeOutput("Linkedin: " + linkedin.value)}`
+            console.log(outputModel);
+            textModel.innerHTML = outputModel;
+
+             /*
+                If show-modal class exists remove and return false
+                otherwise, add a class. 
+            */
+
+            modal.classList.toggle("show-modal");
+            content_form.classList.add("hide");
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
             
             getErrorMessageTab3()
             
+        }
+    });
+
+    closeButton.addEventListener("click", function () {
+
+        /*
+             As the class already exists it will be removed from the modal
+        */
+
+        modal.classList.toggle("show-modal");
+        content_form.classList.remove("hide");
+    });
+
+
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+
+            /*
+                As the class already exists it will be removed from the modal
+            */
+
+            modal.classList.toggle("show-modal");
         }
     });
 
