@@ -404,6 +404,7 @@ export default function navigation() {
         listCertificates = [];
         modal.classList.toggle("show-modal");
         content_form.classList.remove("hide");
+        document.location.reload(true);
     });
 
     button_more.addEventListener("click", function(event){
