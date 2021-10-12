@@ -6,6 +6,8 @@ export default function navigation() {
 
     /* Variables for logical navigation */
 
+    const content_certificates = $("#certificates")
+
     const content_form = $("form");
 
     const content_1tab = $("#content_1tab")
@@ -37,11 +39,12 @@ export default function navigation() {
     const linkedin = $("#linkedin")
 
     /* Variables for modal controller */
-    const modal = document.querySelector(".modal");
-    const closeButton = document.querySelector("#close-model");
-    const textModel = document.querySelector("#text-modal");
-
-    /*  Variables for error messages   */
+    const modal = $(".modal");
+    const closeButton = $("#close-model");
+    const textModel = $("#text-modal");
+    const certificatesText = $("#certificates");
+    const buttonMore = $("#button-more");
+    let listCertificates = [];
 
     function validadeOutput(output) {
         let saida = output.split(":");
@@ -51,6 +54,8 @@ export default function navigation() {
         }
         return `${(saida[0] + ":" + saida[1])} <br>`;
     }
+
+    /*  Variables for error messages   */
 
     function getErrorMessageTab1() {
         const erroNome = $("#erroNome")
@@ -357,6 +362,10 @@ function getClearMessagesErrorTab3() {
         content_form.classList.remove("hide");
     });
 
+
+    buttonMore.addEventListener("click", function(){
+        console.log("Black Box Testing...");
+    });
 
     window.addEventListener("click", function (event) {
         if (event.target === modal) {
