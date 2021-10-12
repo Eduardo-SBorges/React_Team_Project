@@ -8,7 +8,8 @@
 @import 'modules/structure.css';
 @import 'modules/sucessmodel.css';
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-@import "modules/certificates.css";
+@import 'modules/certificates.css';
+@import 'modules/responsive.css';
 
 /* ALL TABS */
 
@@ -31,7 +32,7 @@
   justify-content: end;
 }
 
-.btn-space-between{
+.btn-space-between {
   display: flex;
   justify-content: space-between;
   /* align-items: baseline; */
@@ -67,7 +68,8 @@ button {
 }
 
 .show {
-    display: block !important;
+  display: block !important;
+  position: absolute;
 }
 /* First TAB */
 
@@ -91,18 +93,18 @@ button {
 }
 
 .btn-to-down {
-    display: flex;
-    align-items: flex-end;
-    height: 322px;
+  display: flex;
+  align-items: flex-end;
+  height: 322px;
 }
 
 .btn-to-down button {
-    margin-bottom: 26px;
+  margin-bottom: 26px;
 }
 
 /* Third TAB */
 
-.div-heart{
+.div-heart {
   margin-top: 7px !important;
 }
 
@@ -115,17 +117,17 @@ button {
 }
 
 .btn-finish {
-margin-top: 21px;
-margin-bottom: 13px;
+  margin-top: 21px;
+  margin-bottom: 13px;
 }
 
 /* Spans de Erro */
 
-.showError{
+.showError {
   font-family: 'Nunito', sans-serif;
   color: red;
   font-size: 14px;
   line-height: 16px;
   font-weight: 400;
-  padding-left: 20px;  
+  padding-left: 20px;
 }
