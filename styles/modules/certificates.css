@@ -1,6 +1,5 @@
 .certificates-list {
-    position: absolute; 
-    /* margin-top: 239px; */
+    margin-top: -16px !important; /* Used to align with "More Button" */
     font-size: 16px;
 }
 

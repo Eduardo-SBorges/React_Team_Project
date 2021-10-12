@@ -161,10 +161,11 @@
                                 </div>
                             </div>
 
-                            <div class="input-block">
-                                <label class="check-terms">I accept the terms and privacy
-                                    <input type="checkbox" />
-                                    <span class="checkmark"></span>
+                            <div id="terms" class="input-block">
+                                <label id="terms-label" class="check-terms">I accept the terms and privacy<span
+                                        id="erroCheckbox"></span>
+                                    <input id="terms-input" type="checkbox" />
+                                    <span id="terms-span" class="checkmark"></span>
                                 </label>
                             </div>
 
@@ -220,28 +221,33 @@
                                 <label class="labels" for="certificates">Certificates</label>
                                 <div id="input_btn">
                                     <input type="text" id="certificates" class="input-heart"
-                                        placeholder="https://www.linkedin.com/in/foo-bar-3a0560104/" />
-                                    <button id="btn_heart" class="button-prevent"><i id="heart-teste" data-feather="heart"></i></button>
+                                        placeholder="https://cursos.alura.com.br/certificate/4ad81d87-33a3-48f4-86ac-5d4e3747b761" />
+                                    <button id="btn_heart" class="button-prevent"><i id="heart-teste"
+                                            data-feather="heart"></i></button>
                                 </div>
                             </div>
-                            <div class="certificates-list">
-                                <ul class="certificates-ul">
-                                    <li class="certificates-opt hide"><span class="certificates-span">Certificates</span>
-                                        <i data-feather="chevron-down"></i>
-                                    </li>
-                                    <div class="certificates-added hide">
-                                        <div class="certificates-favorite">
-                                            
+                            <div class="input-block btn-space-between btn-more">
+                                <div class="certificates-list">
+                                    <ul class="certificates-ul">
+                                        <li class="certificates-opt hide"><span
+                                                class="certificates-span">Certificates</span>
+                                            <i data-feather="chevron-down"></i>
+                                        </li>
+                                        <div class="certificates-added hide">
+                                            <div class="certificates-favorite">
+
+                                            </div>
+                                            <div class="certificates-normal">
+
+                                            </div>
                                         </div>
-                                        <div class="certificates-normal">
-        
-                                        </div>
-                                    </div>
-                                </ul>
-                            </div>
-                            <div class="input-block btn-to-right btn-more">
-                                <button class="btn button-prevent button-more"><i class="svg-left" data-feather="plus"></i>More<i class="svg-right"
-                                        data-feather="check"></i></button>
+                                    </ul>
+                                </div>
+                                <div class="prevent-align-flex-start">
+                                    <button class="btn button-prevent button-more"><i class="svg-left"
+                                            data-feather="plus"></i>More<i class="svg-right"
+                                            data-feather="check"></i></button>
+                                </div>
                             </div>
 
                             <div class="input-block">

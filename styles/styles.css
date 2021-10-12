@@ -31,6 +31,12 @@
   justify-content: end;
 }
 
+.btn-space-between{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: baseline; */
+}
+
 .hide {
   display: none !important;
 }
@@ -102,6 +108,10 @@ button {
 
 .btn-more {
   margin-top: -10px !important;
+}
+
+.prevent-align-flex-start {
+  align-self: flex-start !important;
 }
 
 .btn-finish {

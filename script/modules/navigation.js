@@ -23,10 +23,18 @@ export default function navigation() {
     const fullname = $("#fullname")
     const email = $("#email")
     const age = $("#age")
+    const terms_input = $("#terms-input")
     const github = $("#github")
     const teamName = $("#teamName")
     const institution = $("#institution")
     const graduation = $("#graduation")
+
+    /* Checkbox validation */
+
+    terms_input.addEventListener('click', () => {
+        terms_input.classList.toggle('check-box-actived')
+    });
+
 
     /*  Variables for error messages and its functions   */
 
@@ -34,7 +42,7 @@ export default function navigation() {
         const erroNome = $("#erroNome")
         const erroEmail = $("#erroEmail")
         const erroBirthday = $("#erroBirthday")
-
+        const erroCheckbox = $("#erroCheckbox")
 
 
         if (fullname.value === "") {
@@ -59,6 +67,13 @@ export default function navigation() {
         } else {
             erroBirthday.classList.remove("showError")
             erroBirthday.textContent = ""
+        }
+        if (terms_input.classList.contains("check-box-actived") == false) {
+            erroCheckbox.textContent = "Please confirm the terms"
+            erroCheckbox.classList.add("showError")
+        } else {
+            erroCheckbox.classList.remove("showError")
+            erroCheckbox.textContent = ""
         }
     }
 
@@ -113,6 +128,7 @@ export default function navigation() {
         erroNome.textContent = ""
         erroEmail.textContent = ""
         erroBirthday.textContent = ""
+        erroCheckbox.textContent = ""
     }
 
     function getClearMessagesErrorTab2() {
@@ -203,7 +219,8 @@ export default function navigation() {
 
         if (x.target === social || x.target.textContent == social_span) {
 
-            if (fullname.value != "" && email.value != "" && age.value != "") {
+            if (fullname.value != "" && email.value != ""
+                && age.value != "" && terms_input.classList.contains("check-box-actived") == true) {
                 content_1tab.classList.add("hide")
                 content_2tab.classList.remove("hide")
                 content_3tab.classList.add("hide")
@@ -225,7 +242,8 @@ export default function navigation() {
 
         if (x.target === certificates || x.target.textContent == certificates_span) {
 
-            if (fullname.value != "" && email.value != "" && github.value != "") {
+            if (fullname.value != "" && email.value != "" && age.value != "" && github.value != ""
+                && terms_input.classList.contains("check-box-actived") == true) {
                 content_1tab.classList.add("hide")
                 content_2tab.classList.add("hide")
                 content_3tab.classList.remove("hide")
@@ -251,7 +269,7 @@ export default function navigation() {
         event.preventDefault()
 
         if (fullname.value != "" && email.value != ""
-            && age.value != "") {
+            && age.value != "" && terms_input.classList.contains("check-box-actived") == true) {
             content_1tab.classList.add("hide")
             content_2tab.classList.remove("hide")
             content_3tab.classList.add("hide")
@@ -276,8 +294,8 @@ export default function navigation() {
 
         event.preventDefault()
 
-        if (fullname.value != "" && email.value != ""
-            && github.value != "") {
+        if (fullname.value != "" && email.value != "" && age.value != ""
+            && github.value != "" && terms_input.classList.contains("check-box-actived") == true) {
 
             content_1tab.classList.add("hide")
             content_2tab.classList.add("hide")
@@ -306,7 +324,7 @@ export default function navigation() {
         if (fullname.value != "" && email.value != ""
             && github.value != "" && teamName.value != ""
             && institution.value != "" && graduation.value != ""
-            && age.value != "") {
+            && age.value != "" && terms_input.classList.contains("check-box-actived") == true) {
             console.log("Submit liberado!")
 
             getClearMessagesErrorTab1()
