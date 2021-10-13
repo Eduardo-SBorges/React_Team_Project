@@ -31,3 +31,39 @@
 .modal-content-hide {
     display: hide;
 }
+
+@media (max-width: 770px) {
+   .modal-content {
+       position: static;
+    width: 600px;
+    border: none;
+  }
+}
+
+@media (max-width: 670px) {
+   .modal-content {
+       position: static;
+    width: 500px;
+  }
+}
+
+@media (max-width: 570px) {
+   .modal-content {
+       position: static;
+    width: 400px;
+  }
+}
+
+@media (max-width: 470px) {
+   .modal-content {
+       position: static;
+    width: 300px;
+  }
+}
+
+@media (max-width: 370px) {
+   .modal-content {
+       position: static;
+    width: 250px;
+  }
+}
