@@ -6,8 +6,6 @@ export default function navigation() {
 
     /* Variables for logical navigation */
 
-    const content_form = $("form");
-
     const content_1tab = $("#content_1tab")
     const content_2tab = $("#content_2tab")
     const content_3tab = $("#content_3tab")
@@ -38,33 +36,39 @@ export default function navigation() {
     const linkedin = $("#linkedin")
 
     /* Variables for modal controller */
+    const form_darking = $("form");
     const modal = $(".modal");
     const closeButton = $("#close-model");
     const textModel = $("#text-modal");
-
-    /* Button more*/
     const button_more = $("#my-button-more");
     const content_certificates = $("#certificates");
     let listCertificates = [];
+
+     /* Function for modal validity exit */
+
+     function validadeOutput(output) {
+        
+        let modal_output_text = output.split(":");
+        if (modal_output_text[1] == " ") {
+            return "";
+        }
+        return `${(modal_output_text[0] + ":" + modal_output_text[1])} <br>`;
+    }
+
+    function validateCertificates(certificates) {
+        if (certificates.length == 0) {
+            return "";
+        }
+        return "Certificates: " + listCertificates.join(", ");
+    }
+
     /* Checkbox validation */
 
     terms_input.addEventListener('click', () => {
         terms_input.classList.toggle('check-box-actived')
     });
 
-
     /*  Variables for error messages and its functions   */
-
-    /* Function to validade output of modal */
-    function validadeOutput(output) {
-        let saida = output.split(":");
-        console.log(saida);
-        if (saida[1] == " ") {
-            return "";
-        }
-        return `${(saida[0] + ":" + saida[1])} <br>`;
-    }
-
 
     function getErrorMessageTab1() {
         const erroNome = $("#erroNome")
@@ -204,17 +208,6 @@ export default function navigation() {
 
         $('#age').value = getAge(`${year.value}/${month.value - 1}/${day.value}`)
     });
-
-    /* Variables for Sucess */
-
-    // Obtém o botão close
-    var closeModal = document.querySelector("#close");
-
-    // Obtém o spam que terá a mensagem de sucesso
-    let textoSucesso = document.querySelector("#texto-sucesso");
-
-    // Obtém o texto tab_certificates que será mudado para sucesso
-    let textCertificates = document.querySelector("#certificates_id");
 
     /* Variables for buttons */
 
@@ -361,7 +354,7 @@ export default function navigation() {
             getClearMessagesErrorTab2()
             getClearMessagesErrorTab3()
 
-            let outputModel = `Seus dados foram enviados com sucesso! <br> <br>
+            let outputModel = `Your data has been sent successfully! <br> <br>
                                ${validadeOutput("Fullname: " + fullname.value)} 
                                ${validadeOutput("Nickname: " + nickname.value)} 
                                ${validadeOutput("Email: " + email.value)}
@@ -375,7 +368,7 @@ export default function navigation() {
                                                                year.value)}
                                ${validadeOutput("Age: " + age.value)}
                                ${validadeOutput("Linkedin: " + linkedin.value)}
-                               ${("Certificados: " + listCertificates.join(", "))}`
+                               ${validateCertificates(listCertificates)}`
             console.log(outputModel);
             textModel.innerHTML = outputModel;
 
@@ -385,7 +378,7 @@ export default function navigation() {
             */
 
             modal.classList.toggle("show-modal");
-            content_form.classList.add("hide");
+            //content_form.classList.add("hide");
 
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
@@ -400,30 +393,32 @@ export default function navigation() {
              As the class already exists it will be removed from the modal
         */
 
-        //console.log("lista vazia.");
+        // reset list
+
         listCertificates = [];
+
+        // reset modal
+
+        form_darking.classList.add(".darking");
         modal.classList.toggle("show-modal");
-        content_form.classList.remove("hide");
+        //content_form.classList.remove("hide");
+
+        // refresh page
+
         document.location.reload(true);
     });
 
     button_more.addEventListener("click", function(event){
+        
         event.preventDefault();
+
+        /*
+            Add a certificate to the list that will be rendered in the future
+        */
+
         if (listCertificates.length < 5){
             listCertificates.push(content_certificates.value);
-            console.log(listCertificates);
         } 
-    });
-
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
-
-            /*
-                As the class already exists it will be removed from the modal
-            */
-
-            modal.classList.toggle("show-modal");
-        }
     });
 
     /* Ending Submits validations */
