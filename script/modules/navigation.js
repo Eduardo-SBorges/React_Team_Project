@@ -9,8 +9,9 @@ export default function navigation() {
     const content_1tab = $("#content_1tab")
     const content_2tab = $("#content_2tab")
     const content_3tab = $("#content_3tab")
-    const content_main = $("main")
-    const content_form = $(".form-container")
+    const content_tabs_container = $(".tabs-container")
+    const content_first_tab = $("#first-tab");
+    const content_form = $("form")
     const content_input_teamName = $("#teamName")
     const content_input_institution = $("#institution")
     const content_input_graduation = $("#graduation")
@@ -375,7 +376,13 @@ export default function navigation() {
            */
 
             modal.classList.toggle("show-modal");
-            content_3tab.classList.add("hide");
+            //content_1tab.classList.add("hide");
+            //content_2tab.classList.add("hide");
+            //content_3tab.classList.add("hide");
+            //content_tabs_container.classList.add("hide");
+            //content_first_tab.classList.add("hide");
+            content_form.classList.add("hide");
+            //content_form.classList
             //content_main.classList.add("darking");
             //content_form.classList.add("darking-inputs");
             //content_input_teamName.classList.add("darking-inputs");
@@ -401,7 +408,7 @@ export default function navigation() {
         // reset modal
 
         modal.classList.toggle("show-modal");
-        content_3tab.classList.remove("hide");
+        content_form.classList.remove("hide");
 
         // refresh page
 
