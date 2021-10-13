@@ -384,12 +384,13 @@ export default function navigation() {
             */
 
             modal.classList.toggle("show-modal");
-            content_main.classList.add("darking");
-            content_form.classList.add("darking-inputs");
-            content_input_teamName.classList.add("darking-inputs");
-            content_input_institution.classList.add("darking-inputs");
-            content_input_graduation.classList.add("darking-inputs");
-            content_input_certificates.classList.add("darking-inputs");
+            content_3tab.classList.add("hide");
+            //content_main.classList.add("darking");
+            //content_form.classList.add("darking-inputs");
+            //content_input_teamName.classList.add("darking-inputs");
+            //content_input_institution.classList.add("darking-inputs");
+            //content_input_graduation.classList.add("darking-inputs");
+            //content_input_certificates.classList.add("darking-inputs");
 
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
@@ -411,12 +412,7 @@ export default function navigation() {
         // reset modal
 
         modal.classList.toggle("show-modal");
-        content_main.classList.remove("darking");
-        content_form.classList.remove("darking");
-        content_input_teamName.classList.remove("darking-inputs");
-        content_input_institution.classList.remove("darking-inputs");
-        content_input_graduation.classList.remove("darking-inputs");
-        content_input_certificates.classList.remove("darking-inputs");
+        content_3tab.classList.remove("hide");
 
         // refresh page
 
