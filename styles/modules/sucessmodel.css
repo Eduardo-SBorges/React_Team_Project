@@ -1,14 +1,32 @@
 .modal {
-    width: auto;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .modal-content {
-    background: #ffffff;
-    color: #767676;
-    border: 2px solid #aaaaaa;
-    border-radius: 4px;
-    padding: 11px 12px;
     margin: 1% 5%;
+    width: 650px;
+    font-family: 'Nunito', sans-serif;
+    color: #767676;
+    background: #ffffff;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+    border: 2px solid #aaaaaa;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 11px 12px;
+    margin-top: 4px;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transition: 1s;
 }
 
 .modal-content-hide {

@@ -35,7 +35,6 @@ export default function navigation() {
         terms_input.classList.toggle('check-box-actived')
     });
 
-
     /*  Variables for error messages and its functions   */
 
     function getErrorMessageTab1() {
@@ -163,7 +162,6 @@ export default function navigation() {
             age_aux = 'Invalid Age';
         }
 
-        console.log(isNaN(parseInt(age_aux)));
         document.querySelector('#age').value = isNaN(parseInt(age_aux))
             ? 'Invalid Age'
             : age_aux;
@@ -177,25 +175,13 @@ export default function navigation() {
         $('#age').value = getAge(`${year.value}/${month.value - 1}/${day.value}`)
     });
 
-    /* Variables for Sucess */
-
-    // Obtém o botão close
-    var closeModal = document.querySelector("#close");
-
-    // Obtém o modal
-    let modal = document.querySelector("#myModal");
-
-    // Obtém o spam que terá a mensagem de sucesso
-    let textoSucesso = document.querySelector("#texto-sucesso");
-
-    // Obtém o texto tab_certificates que será mudado para sucesso
-    let textCertificates = document.querySelector("#certificates_id");
-
     /* Variables for buttons */
 
     const next1 = $("#next1")
     const next2 = $("#next2")
     const finish = $("#finish")
+
+    const button_more = $("#my-button-more");
 
     basic.addEventListener('click', (x) => {
 
@@ -211,10 +197,6 @@ export default function navigation() {
                 certificates.classList.remove("active")
 
                 titulo.textContent = "First Tab"
-                console.log("Página 2 liberada!")
-
-            } else {
-                console.log("Não é possível avançar a página!")
             }
         }
     });
@@ -237,7 +219,6 @@ export default function navigation() {
                 titulo.textContent = "Second Tab"
                 getClearMessagesErrorTab2()
             } else {
-                console.log("Não é possível avançar a página!")
                 getErrorMessageTab1()
             }
         }
@@ -259,7 +240,6 @@ export default function navigation() {
 
                 titulo.textContent = "Third Tab"
             } else {
-                console.log("Não é possível avançar a página!")
                 getErrorMessageTab1()
                 getErrorMessageTab2()
             }
@@ -289,7 +269,6 @@ export default function navigation() {
             getClearMessagesErrorTab2()
 
         } else {
-            console.log("Não é possível avançar para a Tab 2 ainda!")
             getErrorMessageTab1()
 
         }
@@ -316,7 +295,6 @@ export default function navigation() {
             getClearMessagesErrorTab2()
 
         } else {
-            console.log("Não é possível avançar para a Tab 3 ainda!")
             getErrorMessageTab2()
 
         }
@@ -330,38 +308,22 @@ export default function navigation() {
             && github.value != "" && teamName.value != ""
             && institution.value != "" && graduation.value != ""
             && age.value != "" && terms_input.classList.contains("check-box-actived") == true) {
-            console.log("Submit liberado!")
+            alert("Submit sent successfully!")
 
             getClearMessagesErrorTab1()
             getClearMessagesErrorTab2()
             getClearMessagesErrorTab3()
 
-            // Remove a classe hide
-            modal.classList.remove("hide");
-            // Adiciona um hiden nos três content_tab
-            // Desta forma, renderiza só o modal de sucesso
-            content_1tab.classList.add("hide");
-            content_2tab.classList.add("hide");
-            content_3tab.classList.add("hide");
-            // Modifica o texto de sucesso a ser renderizado
-            textoSucesso.innerHTML = fullname.value.concat(", your data has been sent successfully!");
-            textCertificates.textContent = "Enviado com Sucesso!";
-
-            const closeModal = $('close')
-
-            closeModal.addEventListener("click", function () {
-                const modal = $('#myModal')
-                // Adiciona a classe hide
-                modal.classList.remove("hide");
-                // Recarrega a página atual sem usar o cache
-                content_3tab.classList.remove("hide");
-            });
-
         } else {
-            console.log("Não é possível avançar com o Submit ainda!")
 
             getErrorMessageTab3()
         }
+    });
+
+    button_more.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
     });
 
     /* Ending Submits validations */
