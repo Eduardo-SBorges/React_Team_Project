@@ -9,6 +9,12 @@ export default function navigation() {
     const content_1tab = $("#content_1tab")
     const content_2tab = $("#content_2tab")
     const content_3tab = $("#content_3tab")
+    const content_main = $("main")
+    const content_form = $(".form-container")
+    const content_input_teamName = $("#teamName")
+    const content_input_institution = $("#institution")
+    const content_input_graduation = $("#graduation")
+    const content_input_certificates = $("#certificates")
 
     const basic = $(".basic")
     const social = $(".social")
@@ -59,7 +65,7 @@ export default function navigation() {
         if (certificates.length == 0) {
             return "";
         }
-        return "Certificates: " + listCertificates.join(", ");
+        return `${"Certificates: " + listCertificates.join(", ")} <br>`;
     }
 
     /* Checkbox validation */
@@ -355,20 +361,20 @@ export default function navigation() {
             getClearMessagesErrorTab3()
 
             let outputModel = `Your data has been sent successfully! <br> <br>
-                               ${validadeOutput("Fullname: " + fullname.value)} 
+                               ${validadeOutput("Full Name: " + fullname.value)} 
                                ${validadeOutput("Nickname: " + nickname.value)} 
                                ${validadeOutput("Email: " + email.value)}
                                ${validadeOutput("Phone: " + phone.value)}
-                               ${validadeOutput("GitHub: " + github.value)}
-                               ${validadeOutput("Team Name: " + teamName.value)}
-                               ${validadeOutput("Institution: " + institution.value)}
-                               ${validadeOutput("Graduation: " + graduation.value)}
                                ${validadeOutput("Birthday: " + day.value + "/" +
                                                                month.value + "/" + 
                                                                year.value)}
                                ${validadeOutput("Age: " + age.value)}
+                               ${validadeOutput("GitHub: " + github.value)}
                                ${validadeOutput("Linkedin: " + linkedin.value)}
-                               ${validateCertificates(listCertificates)}`
+                               ${validateCertificates(listCertificates)}
+                               ${validadeOutput("Team Name: " + teamName.value)}
+                               ${validadeOutput("Institution: " + institution.value)}
+                               ${validadeOutput("Graduation: " + graduation.value)}`
             console.log(outputModel);
             textModel.innerHTML = outputModel;
 
@@ -378,7 +384,12 @@ export default function navigation() {
             */
 
             modal.classList.toggle("show-modal");
-            //content_form.classList.add("hide");
+            content_main.classList.add("darking");
+            content_form.classList.add("darking-inputs");
+            content_input_teamName.classList.add("darking-inputs");
+            content_input_institution.classList.add("darking-inputs");
+            content_input_graduation.classList.add("darking-inputs");
+            content_input_certificates.classList.add("darking-inputs");
 
         } else {
             console.log("Não é possível avançar com o Submit ainda!")
@@ -399,9 +410,13 @@ export default function navigation() {
 
         // reset modal
 
-        form_darking.classList.add(".darking");
         modal.classList.toggle("show-modal");
-        //content_form.classList.remove("hide");
+        content_main.classList.remove("darking");
+        content_form.classList.remove("darking");
+        content_input_teamName.classList.remove("darking-inputs");
+        content_input_institution.classList.remove("darking-inputs");
+        content_input_graduation.classList.remove("darking-inputs");
+        content_input_certificates.classList.remove("darking-inputs");
 
         // refresh page
 
