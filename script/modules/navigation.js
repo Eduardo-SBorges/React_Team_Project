@@ -9,6 +9,12 @@ export default function navigation() {
     const content_1tab = $("#content_1tab")
     const content_2tab = $("#content_2tab")
     const content_3tab = $("#content_3tab")
+    const content_main = $("main")
+    const content_form = $(".form-container")
+    const content_input_teamName = $("#teamName")
+    const content_input_institution = $("#institution")
+    const content_input_graduation = $("#graduation")
+    const content_input_certificates = $("#certificates")
 
     const basic = $(".basic")
     const social = $(".social")
@@ -21,13 +27,46 @@ export default function navigation() {
     /* Variables for required inputs */
 
     const fullname = $("#fullname")
+    const nickname = $("#nickname")
     const email = $("#email")
+    const phone = $("#phone")
     const age = $("#age")
+    const day = $("#day")
+    const month = $("#month")
+    const year = $("#year")
     const terms_input = $("#terms-input")
     const github = $("#github")
     const teamName = $("#teamName")
     const institution = $("#institution")
     const graduation = $("#graduation")
+    const linkedin = $("#linkedin")
+
+    /* Variables for modal controller */
+    const form_darking = $("form");
+    const modal = $(".modal");
+    const closeButton = $("#close-model");
+    const textModel = $("#text-modal");
+    const button_more = $("#my-button-more");
+    const content_certificates = $("#certificates");
+    let listCertificates = [];
+
+    /* Function for modal validity exit */
+
+    function validadeOutput(output) {
+
+        let modal_output_text = output.split(":");
+        if (modal_output_text[1] == " ") {
+            return "";
+        }
+        return `${(modal_output_text[0] + ":" + modal_output_text[1])} <br>`;
+    }
+
+    function validateCertificates(certificates) {
+        if (certificates.length == 0) {
+            return "";
+        }
+        return `${"Certificates: " + listCertificates.join(", ")} <br>`;
+    }
 
     /* Checkbox validation */
 
@@ -181,8 +220,6 @@ export default function navigation() {
     const next2 = $("#next2")
     const finish = $("#finish")
 
-    const button_more = $("#my-button-more");
-
     basic.addEventListener('click', (x) => {
 
         if (x.target === basic || x.target.textContent == basic_span) {
@@ -308,22 +345,84 @@ export default function navigation() {
             && github.value != "" && teamName.value != ""
             && institution.value != "" && graduation.value != ""
             && age.value != "" && terms_input.classList.contains("check-box-actived") == true) {
-            alert("Submit sent successfully!")
+
+            /* alert("Submit sent successfully!") */
 
             getClearMessagesErrorTab1()
             getClearMessagesErrorTab2()
             getClearMessagesErrorTab3()
 
-        } else {
+            let outputModel = `Your data has been sent successfully! <br> <br>
+                               ${validadeOutput("Full Name: " + fullname.value)} 
+                               ${validadeOutput("Nickname: " + nickname.value)} 
+                               ${validadeOutput("Email: " + email.value)}
+                               ${validadeOutput("Phone: " + phone.value)}
+                               ${validadeOutput("Birthday: " + day.value + "/" +
+                month.value + "/" +
+                year.value)}
+                               ${validadeOutput("Age: " + age.value)}
+                               ${validadeOutput("GitHub: " + github.value)}
+                               ${validadeOutput("Linkedin: " + linkedin.value)}
+                               ${validateCertificates(listCertificates)}
+                               ${validadeOutput("Team Name: " + teamName.value)}
+                               ${validadeOutput("Institution: " + institution.value)}
+                               ${validadeOutput("Graduation: " + graduation.value)}`
+            textModel.innerHTML = outputModel;
 
+            /*
+               If show-modal class exists remove and return false
+               otherwise, add a class. 
+           */
+
+            modal.classList.toggle("show-modal");
+            content_main.classList.add("darking");
+            content_form.classList.add("darking-inputs");
+            content_input_teamName.classList.add("darking-inputs");
+            content_input_institution.classList.add("darking-inputs");
+            content_input_graduation.classList.add("darking-inputs");
+            content_input_certificates.classList.add("darking-inputs");
+
+        } else {
             getErrorMessageTab3()
         }
+    });
+
+    closeButton.addEventListener("click", function () {
+
+        /*
+             As the class already exists it will be removed from the modal
+        */
+
+        // reset list
+
+        listCertificates = [];
+
+        // reset modal
+
+        modal.classList.toggle("show-modal");
+        content_main.classList.remove("darking");
+        content_form.classList.remove("darking");
+        content_input_teamName.classList.remove("darking-inputs");
+        content_input_institution.classList.remove("darking-inputs");
+        content_input_graduation.classList.remove("darking-inputs");
+        content_input_certificates.classList.remove("darking-inputs");
+
+        // refresh page
+
+        document.location.reload(true);
     });
 
     button_more.addEventListener("click", function (event) {
 
         event.preventDefault();
 
+        /*
+            Add a certificate to the list that will be rendered in the future
+        */
+
+        if (listCertificates.length < 5) {
+            listCertificates.push(content_certificates.value);
+        }
     });
 
     /* Ending Submits validations */
