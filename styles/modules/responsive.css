@@ -1,3 +1,11 @@
+@media (max-width: 770px) {
+   .modal-content {
+       position: static;
+    width: 600px;
+    border: none;
+  }
+}
+
 @media (max-width: 600px) {
   .tab-container {
     margin: 0;
